@@ -1,0 +1,18 @@
+INPUT
+clk :BV(1);
+enable :BV(1);
+reset :BV(1);
+
+#VAR
+#out=BV(8);
+#Module instantiation
+#counter_test = counter(out,enable,clk,reset); 
+
+INIT
+clk = 0_1;
+enable = 1_1;
+reset = 0_1;
+
+
+TRANS
+(clk = 0_1) <-> (next(clk) = 1_1);
